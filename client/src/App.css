@@ -1,0 +1,270 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.chat-container {
+  background-color: #3a3f4b;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.transcript, .response {
+  background-color: #2c313a;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  min-height: 100px;
+  text-align: left;
+}
+
+.response-content {
+  position: relative;
+  min-height: 50px;
+}
+
+.typewriter-text {
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.typewriter-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #61dafb;
+  color: #282c34;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #4fa8c9;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+button.listening {
+  background-color: #ff4444;
+  animation: pulse 1.5s infinite;
+}
+
+.speak-button {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.speak-button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.speak-button:disabled {
+  background-color: #8bc34a;
+}
+
+.skip-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #666;
+  color: white;
+  opacity: 0.7;
+}
+
+.skip-button:hover {
+  opacity: 1;
+  background-color: #777;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.voice-selector {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #3a3f4b;
+  border-radius: 5px;
+}
+
+.voice-selector label {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.voice-selector select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #61dafb;
+  background-color: #2c313a;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.voice-selector select:focus {
+  outline: none;
+  border-color: #4fa8c9;
+  box-shadow: 0 0 0 2px rgba(97, 218, 251, 0.2);
+}
+
+.voice-selector select option {
+  background-color: #2c313a;
+  color: #fff;
+  padding: 8px;
+}
+
+.record-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.record-button:hover {
+  background-color: #4fa8c9;
+}
+
+.record-button.recording {
+  background-color: #ff4444;
+  animation: pulse 1.5s infinite;
+}
+
+.cancel-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #cc0000;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #61dafb;
+  min-height: 50px;
+}
+
+.loading-dots span {
+  margin-right: 2px;
+}
+
+.loading-dots .dot {
+  animation: dotAnimation 1.5s infinite;
+  opacity: 0;
+}
+
+.loading-dots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
