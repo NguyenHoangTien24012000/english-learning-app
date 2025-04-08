@@ -17,6 +17,10 @@ const VOICE_SPEEDS: { [key: string]: number } = {
   'shimmer': 35   // Giọng trẻ trung, nói nhanh
 };
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || '/api/chat';
+const VOICES_ENDPOINT = process.env.REACT_APP_VOICES_ENDPOINT || '/api/voices';
+
 function App() {
   const [isListening, setIsListening] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -62,7 +66,7 @@ function App() {
     }
 
     // Fetch available voices
-    fetch('http://localhost:5001/api/voices')
+    fetch(`${API_URL}${VOICES_ENDPOINT}`)
       .then(response => response.json())
       .then(data => setVoices(data))
       .catch(error => console.error('Error fetching voices:', error));
@@ -131,7 +135,7 @@ function App() {
   const handleSubmit = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('http://localhost:5001/api/chat', {
+      const response = await fetch(`${API_URL}${API_ENDPOINT}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
